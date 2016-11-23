@@ -9,7 +9,8 @@ im2 = pyautogui.screenshot(image_name)
 os.system('mv *.png images/screenShots')
 # os.system('mv re')
 
-os.system('sh photoBooth.sh')
+os.system('open /Users/jhonatancruz/Desktop/Photo\ Booth.app')
+# os.system('sh photoBooth.sh')
 time.sleep(2)
 
 pyautogui.keyDown('option')
