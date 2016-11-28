@@ -1,6 +1,8 @@
 import os
 import pyautogui
 import time
+from twilio import twiml
+from twilio.rest import TwilioRestClient
 
 
 date_string = time.strftime("%Y-%m-%d-%H:%M")
@@ -44,3 +46,14 @@ pyautogui.keyUp('command')
 pyautogui.keyDown('command')
 pyautogui.press('w')
 pyautogui.keyUp('command')
+
+account_sid = "{{AC3bd3a69773f1ea33cb499e04597dcebe}}"
+auth_token  = "{{5fc24bcb11f279efe7e608296bc74093}}"
+
+client = TwilioRestClient(account_sid, auth_token)
+
+message = client.messages.create(body="Hello from Python",
+    to="+9082677299",
+    from_="+9088458499")
+
+print(message.sid)
