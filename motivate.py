@@ -47,13 +47,14 @@ pyautogui.keyDown('command')
 pyautogui.press('w')
 pyautogui.keyUp('command')
 
-account_sid = "{{AC3bd3a69773f1ea33cb499e04597dcebe}}"
-auth_token  = "{{5fc24bcb11f279efe7e608296bc74093}}"
+
+account_sid = "AC3bd3a69773f1ea33cb499e04597dcebe"
+auth_token  = "5fc24bcb11f279efe7e608296bc74093"
 
 client = TwilioRestClient(account_sid, auth_token)
 
-message = client.messages.create(body="Hello from Python",
+client.messages.create(
     to="+9082677299",
-    from_="+9088458499")
-
-print(message.sid)
+    from_="+9088458499",
+    media_url="http://www.audubon.org/sites/default/files/styles/engagement_card/public/sfw_apa_2013_28342_232388_briankushner_blue_jay_kk_high.jpg?itok=ttMfUhUu"
+    )
